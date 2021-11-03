@@ -1,6 +1,6 @@
 package tn.esprit.spring;
 
-import lombok.extern.log4j.Log4j;
+
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -21,11 +21,17 @@ public class RayonTest  {
     RayonServiceImp rayonServiceImp;
 
     @Test
+
     public void Test(){
         Rayon r=new Rayon();
         r.setCode("254879632");
         r.setLibelle("Sport");
         rayonServiceImp.addRayon(r);
     }
+
+    
+
+
+
 
 }
