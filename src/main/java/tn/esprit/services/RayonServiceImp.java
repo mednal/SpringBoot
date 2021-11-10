@@ -30,6 +30,12 @@ public class RayonServiceImp implements RayonService{
     }
 
     @Override
+    public String DeleteAllRayon() {
+        rayonRepository.deleteAll();
+        return "ok";
+    }
+
+    @Override
     public String updaterayon(long id) {
         return null;
     }

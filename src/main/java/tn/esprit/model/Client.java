@@ -2,6 +2,7 @@ package tn.esprit.model;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
@@ -43,7 +44,7 @@ public class Client implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="client")
 	private Set<Facture> factures;
 
-	
+
 	public long getIdClient() {
 		return idClient;
 	}

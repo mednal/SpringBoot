@@ -11,5 +11,10 @@ public interface ClientService  {
     void supprimerClient(long id);
     void supprimerToutLesClients();
     List<Client> chercherClient();
+    Boolean getClientByEmailAndPassword(String email,String Password);
+    Client getClientByEmail(String email);
+    Client doLogin(String email,String Password);
+
+    void  updateClient(Client client, long id );
 
 }
