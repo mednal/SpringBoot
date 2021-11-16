@@ -16,6 +16,7 @@ public class RayonController {
     @Autowired
     RayonServiceImp R;
 
+
     public RayonController(RayonServiceImp R) {
         this.R=R;
     }
@@ -50,4 +51,6 @@ public class RayonController {
     public List<Rayon> FindAllRayon() {
         return R.getAllRayon();
     }
+
+
 }

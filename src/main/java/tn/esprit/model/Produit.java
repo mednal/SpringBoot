@@ -17,8 +17,8 @@ public class Produit implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long  idProduit; 
 	private String  code; 
-	private String  idlibelle;
-	private float  idprixUnitaire;
+	private String  libelle;
+	private float  prixUnitaire;
 
 	@ManyToMany(targetEntity=Fournisseur.class,cascade=CascadeType.MERGE)
 	private Set<Fournisseur> fournisseurProduit;
@@ -88,16 +88,16 @@ public class Produit implements Serializable {
 		this.code = code;
 	}
 	public String getIdlibelle() {
-		return idlibelle;
+		return libelle;
 	}
 	public void setIdlibelle(String idlibelle) {
-		this.idlibelle = idlibelle;
+		this.libelle = idlibelle;
 	}
 	public float getIdprixUnitaire() {
-		return idprixUnitaire;
+		return prixUnitaire;
 	}
 	public void setIdprixUnitaire(float idprixUnitaire) {
-		this.idprixUnitaire = idprixUnitaire;
+		this.prixUnitaire = idprixUnitaire;
 	}
 
 }

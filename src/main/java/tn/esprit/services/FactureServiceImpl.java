@@ -14,6 +14,11 @@ public class FactureServiceImpl implements FactureService{
     @Autowired
     private FactureRepository factureRepository;
 
+    public FactureServiceImpl(FactureRepository factureRepository){
+        this.factureRepository=factureRepository;
+    }
+
+
     @Override
     public void ajouterFacture(Facture facture) {
         factureRepository.save(facture);
@@ -32,9 +37,10 @@ public class FactureServiceImpl implements FactureService{
     @Override
     public void updatefacture(Facture facture, long id) {
         Facture f=factureRepository.findById(id).get();
-        if (f.getDateFacture()!=null){ f.setDateFacture(facture.getDateFacture()); }
-        if(f.getDetailFactures()!=null){f.setDetailFactures(facture.getDetailFactures());}
-        if(f.getMontantRemise()!=0){f.setMontantRemise(facture.getMontantRemise());}
+        if (facture.getDateFacture()!=null){ f.setDateFacture(facture.getDateFacture()); }
+        if(facture.getDetailFactures()!=null){f.setDetailFactures(facture.getDetailFactures());}
+        if(facture.getMontantRemise()!=0){f.setMontantRemise(facture.getMontantRemise());}
+        if(facture.getIdmontantFacture()!=0){f.setIdmontantFacture(facture.getIdmontantFacture());}
         factureRepository.save(f);
     }
 
@@ -47,4 +53,6 @@ public class FactureServiceImpl implements FactureService{
     public  Facture cherchefactureid(long id) {
       return  factureRepository.findById(id).get();
     }
+
+
 }

@@ -3,7 +3,9 @@ package tn.esprit.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tn.esprit.Repositories.ProduitRepository;
 import tn.esprit.Repositories.RayonRepository;
+import tn.esprit.model.Produit;
 import tn.esprit.model.Rayon;
 
 import java.util.List;
@@ -12,6 +14,9 @@ import java.util.List;
 public class RayonServiceImp implements RayonService{
     @Autowired
     RayonRepository rayonRepository;
+
+    @Autowired
+    ProduitRepository produitRepository;
 
     @Override
     public void addRayon(Rayon rayon) {
@@ -50,4 +55,7 @@ public class RayonServiceImp implements RayonService{
     public List<Rayon> getAllRayon() {
       return rayonRepository.findAll();
     }
+
+
+
 }

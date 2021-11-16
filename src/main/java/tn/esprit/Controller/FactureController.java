@@ -1,12 +1,14 @@
 package tn.esprit.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import tn.esprit.Repositories.ClientRepository;
+import tn.esprit.Repositories.ProduitRepository;
+import tn.esprit.model.Client;
 import tn.esprit.model.Facture;
+import tn.esprit.model.Produit;
 import tn.esprit.services.FactureServiceImpl;
+import tn.esprit.services.ProduitServiceImpl;
 
 import java.util.List;
 
@@ -15,6 +17,9 @@ import java.util.List;
 public class FactureController {
     @Autowired
     FactureServiceImpl factureServiceimpl;
+
+    @Autowired
+    ClientRepository clientRepository;
 
     public FactureController(FactureServiceImpl factureServiceimpl){this.factureServiceimpl=factureServiceimpl;}
 
@@ -39,10 +44,23 @@ public class FactureController {
         return factureServiceimpl.cherchefactureid(id);
     }
 
-    @PostMapping("/updatefacture")
-    public  String UpdateFacture(Facture facture,long id)
+    @PostMapping("/updatefacture/{id}")
+    public  void UpdateFacture(@RequestBody Facture facture,@PathVariable long id)
     {
+
         factureServiceimpl.updatefacture(facture,id);
-    return "Facture updated";
+
     }
+
+    @GetMapping("/getfacturebyclient/{idClient}")
+    public List <Facture> getFactureByClient(Long idclient){
+      Client p=clientRepository.findById(idclient).get();
+
+        return clientRepository.retrieveFacturesByClient(idclient);
+
+    }
+
+
+
+
 }
