@@ -1,6 +1,7 @@
 package tn.esprit.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import tn.esprit.Repositories.StockRepository;
 import tn.esprit.model.Stock;
@@ -37,6 +38,19 @@ public class StockServiceImpl implements stockService{
     @Override
     public void deleteAllStocks() {
         stockRepository.deleteAll();
+    }
+@Scheduled(fixedDelay = 6000)
+    @Override
+    public void AlertRepture() {
+ List<Stock>stocks=stockRepository.findAll();
+ String alert="";
+ for(Stock st:stocks)
+     if(st.getQte()==0)
+     {
+         alert="out of stock";
+System.out.println(alert);
+     }
+
     }
 
     @Override

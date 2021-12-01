@@ -14,6 +14,6 @@ public interface FactureService {
     void updatefacture(Facture facture , long id);
     List<Facture> chercherFacture();
   Facture cherchefactureid(long id);
-
+    public void revenuTotal();
 
 }

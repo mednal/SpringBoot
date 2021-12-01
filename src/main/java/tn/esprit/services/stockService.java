@@ -12,4 +12,5 @@ public interface stockService {
     public List<Stock> getAllStock();
     public void deleteStockById(long id);
     public void deleteAllStocks();
+    public void AlertRepture();
 }

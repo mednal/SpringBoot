@@ -20,7 +20,7 @@ public class Facture implements  Serializable{
 	
  		private long idFacture ;
 	 	private float montantRemise ;
-	 	private float idmontantFacture ;
+	 	private float montantFacture ;
 	 	@Temporal(value=TemporalType.TIMESTAMP)
 		private Date DateFacture  ;
 		private boolean active  ;
@@ -59,11 +59,11 @@ public class Facture implements  Serializable{
 		public void setMontantRemise(float montantRemise) {
 			this.montantRemise = montantRemise;
 		}
-		public float getIdmontantFacture() {
-			return idmontantFacture;
+		public float getmontantFacture() {
+			return montantFacture;
 		}
-		public void setIdmontantFacture(float idmontantFacture) {
-			this.idmontantFacture = idmontantFacture;
+		public void setmontantFacture(float montantFacture) {
+			this.montantFacture = montantFacture;
 		}
 		public Date getDateFacture() {
 			return DateFacture;
